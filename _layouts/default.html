@@ -4,16 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <!-- Needed for HTTPS -->
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-
-    <!-- Force redirect to HTTPS -->
-    <script type="text/javascript">
-      var host = "blog.angelsix.com";
-      if ((host == window.location.host) && (window.location.protocol != "https:"))
-          window.location.protocol = "https";
-    </script>
-
 {% seo %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
