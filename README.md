@@ -1,5 +1,3 @@
-# AngelSix Blog
-Repository used for posting AngelSix websites blog using GitHub Pages
+# The Blog
+Here you will find my thoughts, comments and mini-guides or advice around my software, hardware and other interests
 
-http://blog.angelsix.com 
-http://angelsix.com
