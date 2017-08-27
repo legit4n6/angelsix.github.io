@@ -43,6 +43,7 @@ permalink: pretty
 # Paginate blog posts into 2 per page
 paginate: 5
 
+# For when to stop outputting content of a blog as a short excerpt
 excerpt_separator: "<!--more-->"
 
 # Exclude from processing.
