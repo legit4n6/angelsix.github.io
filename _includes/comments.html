@@ -1,0 +1,22 @@
+{% if include.comment_url == "" or include.comment_url == nil or include.comment_url == blank %}
+    {% assign comment_url = page.url %}
+{% else %}
+    {% assign comment_url = include.comment_url %}
+{% endif %}
+
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = "http://blog.angelsix.com{{ comment_url }}"; // <--- use canonical URL
+this.page.identifier = "{{ comment_url }}";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//angelsix-blog.disqus.com/embed.js'; // <--- use Disqus shortname
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments.</a></noscript>

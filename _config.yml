@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: AngelSix
+title: AngelSix Blog
 email: contact@angelsix.com
 description: > # this means to ignore newlines until "baseurl:"
   Software, Hardware and anything else
@@ -25,9 +25,25 @@ repository: angelsix/angelsix.github.io
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-cayman
+theme: jekyll-theme-midnight
+# Add jekyll feed to generate atom feed at /feed.xml
+# Add jekyll-avatar for getting GitHub avatar
+# Add jekyll-seo-tag to auto add SEO tags into page using {% seo %}
+# Add jemoji to allow emoji's via shortnames anywhere in text, like :+1:
 plugins:
   - jekyll-feed
+  - jekyll-avatar
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jemoji
+
+# Remove the .html from URLs and make them pretty
+permalink: pretty
+
+# Paginate blog posts into 2 per page
+paginate: 5
+
+excerpt_separator: "<!--more-->"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

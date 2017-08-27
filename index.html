@@ -1,0 +1,82 @@
+---
+layout: default
+pagination: 
+  enabled: true
+---
+
+{% if paginator.page == 1 %}
+    {% assign firstPost = true %}
+{% else %}
+    {% assign firstPost = false %}
+{% endif %}
+
+<!-- This loops through the paginated posts -->
+<!-- To do all posts change paginator.posts to site.posts -->
+{% for post in paginator.posts %}
+
+    <h1 style="margin-bottom: 0; margin-top: 25px">{{ post.title | escape }}</h1>
+    <span class="post-meta" style="color: #aaa; font-size: 0.7em">{{ post.date | date_to_string }}</span>
+
+    {% if post.content contains site.excerpt_separator and firstPost == false %}
+        {{ post.excerpt }}        
+        <p><a href="{{ post.url }}">Read more</a></p>
+    {% else %}
+        {{ post.content }}
+
+        <p><a href="{{ post.url }}">Read more</a></p>
+        
+        <!-- Include comments -->        
+        {% include comments.html comment_url=post.url %}
+
+    {% endif %}
+
+    <!-- No longer first post -->
+    {% if firstPost == true %}
+        {% assign firstPost = false %}
+    {% endif %}
+
+{% endfor %}
+
+{% if paginator.total_pages > 1 %}
+    <hr />
+
+    <!-- Pagination links -->
+    <div class="pagination">
+
+        <!-- Previous page -->
+        {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="previous" style="padding: 0 15px">Previous</a>
+        {% endif %}
+
+        <!-- Get total of 5 pages with current page as center -->
+
+        <!-- Get start page -->
+        {% assign startPage = paginator.page | minus: 2 %}
+        {% if startPage < 1 %}
+            {% assign startPage = 1 %}
+        {% endif %}
+
+        <!-- Get end page --> 
+        {% assign endPage = startPage | plus: 4 %}
+        {% if endPage > paginator.total_pages %}
+            {% assign endPage = paginator.total_pages %}
+        {% endif %}
+
+        <!-- Output all page links -->
+        {% for page in (startPage..endPage) %}  
+            {% if page == paginator.page %}  
+                <span style="padding: 0 5px;">{{ page }}</span>
+            {% elsif page == 1 %}  
+                <a style="padding: 0 5px;" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: 'page:num', '' }}">{{ page }}</a>  
+            {% else %}  
+                <a style="padding: 0 5px;" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>  
+            {% endif %}  
+        {% endfor %}
+
+        <!-- Next Page -->
+        {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next" style="padding: 0 15px">Next</a>
+        {% endif %}
+        
+    </div>
+{% endif %}

@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<!-- Look the author details up from the site config. -->
+{% assign author = site.data.authors[page.author] %}
+
+<h2>{{ page.title }}</h2>
+<!-- Output author details if some exist. -->
+<p class="meta" style="color: #666">{{ page.date | date_to_string }}{% if author %}, written by {% avatar {{ author.gravatar }} %} <a href="{{ author.twitter }}" target="_blank">{{ author.name }}</a>{% endif %}</p>
+
+{{ content }}
+
+<p><a href="{{ site.url }}">&lt; Back to blog</a></p>
+
+<!-- Include comments -->        
+{% include comments.html %}
