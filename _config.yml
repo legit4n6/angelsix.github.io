@@ -18,7 +18,8 @@ email: contact@angelsix.com
 description: > # this means to ignore newlines until "baseurl:"
   Software, Hardware and anything else
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://blog.angelsix.com" # the base hostname & protocol for your site, e.g. http://example.com
+enforce_ssl: blog.angelsix.com   # without any protocol
 twitter_username: angelsixuk
 github_username:  angelsix
 repository: angelsix/angelsix.github.io
