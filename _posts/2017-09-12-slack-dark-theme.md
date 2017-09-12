@@ -13,7 +13,7 @@ The only down-side is it doesn't yet have a dark theme. So looking around the in
 
 So, in order to do this now before Slack officially supports it, do the following:
 
- - Press <kbd>Ctrl + R</kbd> to open `Run...` in Windows
+ - Press <kbd>Win + R</kbd> to open `Run...` in Windows
  - Type `%LOCALAPPDATA%` and press <kbd>Enter</kbd> to open your current users `AppData` folder, such as `C:\Users\luke\AppData\Local`
  - Go into `slack\app-2.x.x\resources\app.asar.unpacked\src\static` and open the **ssb-interop.js** file
  - Add the following to the end of the **ssb-interop.js** file
