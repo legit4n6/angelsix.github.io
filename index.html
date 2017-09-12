@@ -14,7 +14,7 @@ pagination:
 <!-- To do all posts change paginator.posts to site.posts -->
 {% for post in paginator.posts %}
 
-    <h1 style="margin-bottom: 0; margin-top: 25px">{{ post.title | escape }}</h1>
+    <a href="{{ post.url }}"><h1 style="margin-bottom: 0; margin-top: 25px">{{ post.title | escape }}</h1></a>
     <span class="post-meta" style="color: #aaa; font-size: 0.7em">{{ post.date | date_to_string }}</span>
 
     {% if post.content contains site.excerpt_separator and firstPost == false %}
